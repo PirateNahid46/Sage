@@ -1,0 +1,62 @@
+
+body{
+    font-family: 'Roboto-Regular';
+    background: #000;
+
+}
+
+.img{
+    position: fixed;
+    top: 20%;
+    left: 40%;
+}
+.input{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+    
+.main {
+    width: 100%;
+    float: left;
+    margin-top: 60px;
+    padding: 30px 0;
+    background-color: rgb(0, 0, 0);
+}
+
+
+.chatarea-main {
+    width: 42%;
+    margin: 0 auto;
+}
+.chatarea-outer {
+    width: 100%;
+    float: left;
+}
+.chatbot-area .chatarea-main{float: left;}
+.chatarea.user {
+    float: right;
+    width: 40%;
+    padding: 20px 0;
+}
+
+.chatarea-inner {
+    float: left;
+    width: 60%;
+    padding: 10px;
+    color: #fff;
+    position: relative;
+    margin: 5px 0;
+}
+.chatarea-inner.user{
+    background: #6522a423;
+}
+.chatarea-inner.chatbot{
+    background: #466db61a;
+    float: right;
+}
+
+
+
+.chatbot-area .chatarea-inner{float: left;}
+
