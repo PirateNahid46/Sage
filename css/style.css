@@ -5,15 +5,18 @@ body{
 
 }
 
-.img{
+.imgCon{
+    align-items: center;
     position: fixed;
+    width: 100%;
     top: 20%;
-    left: 40%;
+    align-content: center;
 }
 .input{
     position: fixed;
-    bottom: 0;
-    right: 0;
+    width: 100%;
+    bottom: 3%;
+    display: flex;
 }
     
 .main {
@@ -44,15 +47,16 @@ body{
     float: left;
     width: 60%;
     padding: 10px;
-    color: #fff;
+    color: rgb(4, 255, 100);
+    text-shadow: 2px -2px 4px #fff;
     position: relative;
     margin: 5px 0;
 }
 .chatarea-inner.user{
-    background: #6522a423;
+    background: #6522a427;
 }
 .chatarea-inner.chatbot{
-    background: #466db61a;
+    background: #466db61e;
     float: right;
 }
 

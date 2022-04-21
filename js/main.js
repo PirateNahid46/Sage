@@ -10,10 +10,10 @@ let voices = [];
       console.log(voices);
     };
 
-let intro = ["Hello, I am Chitti", "Hi, I am a Robo", "Hello, My name is Chitti"];
+let intro = ["Hello, I am the Sage."];
 let help = ["How may i assist you?","How can i help you?","What i can do for you?"];
-let greetings = ["i am good you little piece of love", "i am fine, what about you", "don't want to talk", "i am good"];
-let hobbies = ["i love to talk with humans", "i like to make friends like you", "i like cooking"];
+let greetings = ["I am good you little piece of love", "I am fine, what about you", "Don't want to talk", "I am good"];
+let hobbies = ["I love to talk with humans", "i like to make friends like you", "i like cooking"];
 let pizzas = ["which type of pizza do you like?", "i can make a pizza for you", "i would love to make a pizza for you", "would you like cheese pizza?"];
 let thank = ["Most welcome","Not an issue","Its my pleasure","Mention not"];
 let closing = ['Ok bye-bye','As you wish, bye take-care','Bye-bye, see you soon..']
@@ -79,6 +79,7 @@ msg.addEventListener("submit", function(e){
     showusermsg(input2);
     chatbotvoice(input2.toLowerCase());
     window.scrollTo(0, document.body.scrollHeight);
+    input.value = "";
     
 })
 
