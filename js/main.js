@@ -10,7 +10,7 @@ let voices = [];
       console.log(voices);
     };
 
-let intro = ["Hello, I am the Sage."];
+let intro = ["Hello, I am the Sage. How can I help you ?"];
 let help = ["How may i assist you?","How can i help you?","What i can do for you?"];
 let greetings = ["I am good you little piece of love", "I am fine, what about you", "Don't want to talk", "I am good"];
 let hobbies = ["I love to talk with humans", "i like to make friends like you", "i like cooking"];
@@ -36,12 +36,19 @@ function showchatbotmsg(chatbotmsg){
 }
 function chatbotvoice(message){
     const speech = new SpeechSynthesisUtterance();
+    if(voices.length < 50 ){
+        speech.voice = voices[2];
+
+    }else{
+        speech.voice = voices[29];
+
+    }
     
-    speech.voice = voices[2];
+    
     
     
     speech.text = "Sorry, Can you say that again?";
-    if(message.includes('who are you')){
+    if(message.includes('sage') || message.includes('hi')){
         let finalresult = intro[Math.floor(Math.random() * intro.length)];
         speech.text = finalresult;
     }
