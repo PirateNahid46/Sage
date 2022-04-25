@@ -39,7 +39,8 @@ function chatbotvoice(message){
     if(voices.length < 50 ){
         speech.voice = voices[2];
 
-    }else{
+    }
+    else{
         speech.voice = voices[29];
 
     }
@@ -76,7 +77,14 @@ function chatbotvoice(message){
         let finalresult = closing[Math.floor(Math.random() * closing.length)];
         speech.text = finalresult;
     }
-    window.speechSynthesis.speak(speech);
+    if(voices.length == 0){
+        var text = speech.text;
+        responsiveVoice.speak(text, "US English Female");
+    }else{
+        window.speechSynthesis.speak(speech);
+
+    }
+    
     chatareamain.appendChild(showchatbotmsg(speech.text));
 }
 
