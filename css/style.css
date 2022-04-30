@@ -1,4 +1,7 @@
-
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 body{
     font-family: 'Roboto-Regular';
     background: #000;
@@ -13,23 +16,122 @@ body{
     align-content: center;
 }
 .input{
-    position: fixed;
-    width: 100%;
-    bottom: 3%;
-    display: flex;
+    flex: 0 1 40px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  position: fixed;
+  bottom: 0px;
 }
+.mic{
+    height: auto;
+}
+.submit{
+    position: absolute;
+  z-index: 1;
+  top: 9px;
+  right: 20px;
+  color: #fff;
+  border: none;
+  background: #148346;
+  font-size: 10px;
+  text-transform: uppercase;
+  line-height: 1;
+  padding: 6px 10px;
+  border-radius: 10px;
+  outline: none !important;
+  transition: background .2s ease;
+}
+.msgBox{
+    background: none;
+  border: none;
+  outline: none !important;
+  resize: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 11px;
+  height: 17px;
+  margin: 0;
+  padding-right: 20px;
+  width: 0%;
+}
+.msgBox:focus:-webkit-placeholder {
+    color: transparent;
+  }
+  .msgBox:focus{
+    background: none;
+    border: none;
+    outline: none !important;
+  }
+.chat-title {
+    flex: 0 1 45px;
+    position: relative;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 10px 10px 10px 50px;
+  }
+  .chat-title h1, .chat-title h2 {
+    font-weight: normal;
+    font-size: 10px;
+    margin: 0;
+    padding: 0;
+  }
+  .chat-title h2 {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+  .chat-title .avatar {
+    position: absolute;
+    z-index: 1;
+    top: 8px;
+    left: 9px;
+    border-radius: 30px;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    border: 2px solid rgba(255, 255, 255, 0.24);
+  }
+  .chat-title .avatar img {
+    width: 100%;
+    height: auto;
+  }
+  .chat{
+      overflow-y:scroll ;
+      height: 80%;
+      width: 100%;
+      position: fixed;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      bottom: 6%;
+  }
     
 .main {
-    width: 100%;
-    float: left;
-    margin-top: 60px;
-    padding: 30px 0;
-    background-color: rgb(0, 0, 0);
+    position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 100vh;
+  max-height: 700px;
+  z-index: 2;
+  overflow: hidden;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+  background: rgba(94, 94, 94, 0.5);
+  border-radius: 2px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 }
 
 
 .chatarea-main {
-    width: 42%;
+    width: 100%;
     margin: 0 auto;
 }
 .chatarea-outer {
@@ -44,23 +146,69 @@ body{
 }
 
 .chatarea-inner {
-    float: left;
-    width: 60%;
-    padding: 10px;
-    color: rgb(4, 255, 100);
-    text-shadow: 2px -2px 4px #fff;
-    position: relative;
-    margin: 5px 0;
+    flex: 1 1 auto;
+  color: rgba(255, 255, 255, 0.78);
+  overflow: hidden;
+  position: relative;
+  width: 100%;
 }
+.chatarea-inner:last-child{
+    margin-bottom: 30px;
+}
+.chat.new {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    -webkit-transform-origin: 0 0;
+            transform-origin: 0 0;
+    -webkit-animation: bounce 500ms linear both;
+            animation: bounce 500ms linear both;
+  }
 .chatarea-inner.user{
-    background: #6522a427;
+    clear: both;
+    float: right;
+  color: #fff;
+  padding: 6px 10px 7px;
+  text-align: right;
+  background: linear-gradient(120deg, #2f704c, #4672b3);
+  border-radius: 10px 10px 0 10px;
+  margin: 8px 0;
+  font-size: 11px;
+  line-height: 1.4;
+  margin-left: 35px;
+  position: relative;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  
+}
+.chatarea-inner.user::before{
+    left: auto;
+  right: 0;
+  border-right: none;
+  border-left: 5px solid transparent;
+  border-top: 4px solid #257287;
+  bottom: -4px;
 }
 .chatarea-inner.chatbot{
-    background: #466db61e;
-    float: right;
+    clear: both;
+  float: left;
+  padding: 6px 10px 7px;
+  border-radius: 10px 10px 10px 0;
+  background: rgba(0, 0, 0, 0.3);
+  margin: 8px 0;
+  font-size: 11px;
+  line-height: 1.4;
+  margin-left: 35px;
+  position: relative;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+.chatarea-inner.chatbot::before{
+    content: '';
+  position: absolute;
+  bottom: -6px;
+  border-top: 6px solid rgba(0, 0, 0, 0.3);
+  left: 0;
+  border-right: 7px solid transparent;
 }
 
 
 
 .chatbot-area .chatarea-inner{float: left;}
-
