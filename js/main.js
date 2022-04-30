@@ -10,7 +10,7 @@ let voices = [];
       console.log(voices);
     };
 
-let intro = ["Hello, I am the Sage. How can I help you ?"];
+let intro = ["Hello, I am Sage. Who are you ?"];
 let help = ["How may i assist you?","How can i help you?","What i can do for you?"];
 let greetings = ["I am good you little piece of love", "I am fine, what about you", "Don't want to talk", "I am good"];
 let hobbies = ["I love to talk with humans", "i like to make friends like you", "i like cooking"];
