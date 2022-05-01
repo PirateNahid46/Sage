@@ -49,7 +49,7 @@ function chatbotvoice(message){
     
     
     
-    speech.text = "Sorry, Can you say that again?";
+    last = ["Sorry, Can you say that again?"];
     if(message.includes('sage') || message.includes('hi')){
         last = intro;
         
@@ -77,7 +77,7 @@ function chatbotvoice(message){
     
     if(voices.length == 0){
         var text = speech.text;
-        //responsiveVoice.speak(text, "US English Female");
+        responsiveVoice.speak(text, "US English Female");
     }else{
         window.speechSynthesis.speak(speech);
 
