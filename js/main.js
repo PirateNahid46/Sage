@@ -16,7 +16,8 @@ let greetings = ["I am good you little piece of love", "I am fine, what about yo
 let hobbies = ["I love to talk with humans", "i like to make friends like you", "i like cooking"];
 let pizzas = ["which type of pizza do you like?", "i can make a pizza for you", "i would love to make a pizza for you", "would you like cheese pizza?"];
 let thank = ["Most welcome","Not an issue","Its my pleasure","Mention not"];
-let closing = ['Ok bye-bye','As you wish, bye take-care','Bye-bye, see you soon..']
+let closing = ['Ok bye-bye','As you wish, bye take-care','Bye-bye, see you soon..'];
+let last;
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
@@ -50,33 +51,30 @@ function chatbotvoice(message){
     
     speech.text = "Sorry, Can you say that again?";
     if(message.includes('sage') || message.includes('hi')){
-        let finalresult = intro[Math.floor(Math.random() * intro.length)];
-        speech.text = finalresult;
+        last = intro;
+        
     }
     if(message.includes('fine')){
-        let finalresult = help[Math.floor(Math.random() * help.length)];
-        speech.text = finalresult;
+        last = help;
     }
     if(message.includes('how are you' || 'how are you doing today')){
-        let finalresult = greetings[Math.floor(Math.random() * greetings.length)];
-        speech.text = finalresult;
+        last = greetings;
     }
     if(message.includes('tell me something about you' || 'tell me something about your hobbies')){
-        let finalresult = hobbies[Math.floor(Math.random() * hobbies.length)];
-        speech.text = finalresult;
+        last = hobbies;
     }
     if(message.includes('pizza')){
-        let finalresult = pizzas[Math.floor(Math.random() * pizzas.length)];
-        speech.text = finalresult;
+        last = pizzas;
     }
     if(message.includes('thank you' || 'thank you so much')){
-        let finalresult = thank[Math.floor(Math.random() * thank.length)];
-        speech.text = finalresult;
+        last = thank;
     }
     if(message.includes('talk to you' || 'talk')){
-        let finalresult = closing[Math.floor(Math.random() * closing.length)];
-        speech.text = finalresult;
+        last = closing;
     }
+    let finalresult = last[Math.floor(Math.random() * last.length)];
+        speech.text = finalresult;
+    
     if(voices.length == 0){
         var text = speech.text;
         //responsiveVoice.speak(text, "US English Female");
@@ -84,7 +82,6 @@ function chatbotvoice(message){
         window.speechSynthesis.speak(speech);
 
     }
-    
     chatareamain.appendChild(showchatbotmsg(speech.text));
 }
 
@@ -93,7 +90,8 @@ msg.addEventListener("submit", function(e){
     const input2 = input.value;
     showusermsg(input2);
     chatbotvoice(input2.toLowerCase());
-    window.scrollTo(0, document.body.scrollHeight);
+    const chat = document.getElementById("chat");
+    chat.scrollTo(0, chat.scrollHeight);
     input.value = "";
     
 })
@@ -106,10 +104,10 @@ recognition.onresult=function(e){
     console.log(transcript);
 }
 recognition.onend=function(){
-    mic.style.background="#ff3b3b";
+    mic.style.color="#ff3b3b";
 }
 mic.addEventListener("click", function(){
-    mic.style.background='#39c81f';
+    mic.style.color='#39c81f';
     recognition.start();
     console.log("Activated");
 })
