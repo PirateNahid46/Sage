@@ -9,18 +9,10 @@ let voices = [];
       voices = window.speechSynthesis.getVoices();
       console.log(voices);
     };
-
-let intro = ["Hello, I am Sage. Who are you ?"];
-let help = ["How may i assist you?","How can i help you?","What i can do for you?"];
-let greetings = ["I am good you little piece of love", "I am fine, what about you", "Don't want to talk", "I am good"];
-let hobbies = ["I love to talk with humans", "i like to make friends like you", "i like cooking"];
-let pizzas = ["which type of pizza do you like?", "i can make a pizza for you", "i would love to make a pizza for you", "would you like cheese pizza?"];
-let thank = ["Most welcome","Not an issue","Its my pleasure","Mention not"];
-let closing = ['Ok bye-bye','As you wish, bye take-care','Bye-bye, see you soon..'];
-let last;
-
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
+
+let last;
 
 function showusermsg(usermsg){
     let output = '';
@@ -50,34 +42,28 @@ function chatbotvoice(message){
     
     
     last = ["Sorry, Can you say that again?"];
-    if(message.includes('sage') || message.includes('hi')){
-        last = intro;
+    for(var x = 0; x < Question.length; x++){
+        var Ques = new Array;
+        Ques = Question[x];
+        var Ans = new Array;
+        Ans = Answer[x];
+    
+        for(var i = 0 ; i< Ques.length; i++){
+            var Ask = Ques[i];
+            if (message.includes(Ask)){
+                last = Ans;
+                console.log(Ans);
+            }
+        }
         
     }
-    if(message.includes('fine')){
-        last = help;
-    }
-    if(message.includes('how are you' || 'how are you doing today')){
-        last = greetings;
-    }
-    if(message.includes('tell me something about you' || 'tell me something about your hobbies')){
-        last = hobbies;
-    }
-    if(message.includes('pizza')){
-        last = pizzas;
-    }
-    if(message.includes('thank you' || 'thank you so much')){
-        last = thank;
-    }
-    if(message.includes('talk to you' || 'talk')){
-        last = closing;
-    }
+
     let finalresult = last[Math.floor(Math.random() * last.length)];
         speech.text = finalresult;
     
     if(voices.length == 0){
         var text = speech.text;
-        responsiveVoice.speak(text, "US English Female");
+        //responsiveVoice.speak(text, "US English Female");
     }else{
         window.speechSynthesis.speak(speech);
 
