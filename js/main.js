@@ -63,7 +63,7 @@ function chatbotvoice(message){
     
     if(voices.length == 0){
         var text = speech.text;
-        //responsiveVoice.speak(text, "US English Female");
+        responsiveVoice.speak(text, "US English Female");
     }else{
         window.speechSynthesis.speak(speech);
 
