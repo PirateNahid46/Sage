@@ -5,7 +5,15 @@
 body{
     font-family: 'Roboto-Regular';
     background: #000;
+    overflow: hidden;
 
+}
+.bi.bi-book-half{
+  color: #148346;
+  right: 20px;
+  width: 20px;
+  position: fixed;
+  z-index: 3;
 }
 
 .imgCon{
@@ -261,8 +269,12 @@ body{
 
 
 @media only screen and (max-width: 768px) {
+  html, body{
+    overflow: hidden;
+  }
   .main{
     height: 95%;
     width: 100%;
+    border: 0; padding: 0; margin: 0;
   }
 }
