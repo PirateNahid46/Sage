@@ -51,6 +51,13 @@ body{
   padding-right: 20px;
   width: 75%;
 }
+.chatpac{
+  flex: 1 1 auto;
+  color: rgba(255, 255, 255, 0.78);
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
 .msgBox:focus{
     border: none;
     outline: none !important;
@@ -70,6 +77,23 @@ body{
     font-size: 10px;
     margin: 0;
     padding: 0;
+  }
+
+  .chatarea-outer .avatar{
+      top: 8px;
+      position: absolute;
+      z-index: 1;
+      border-radius: 30px;
+      width: 30px;
+      height: 30px;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+      border: 2px solid rgba(255, 255, 255, 0.24);
+  }
+  .chatarea-outer .avatar img {
+    width: 100%;
+    height: auto;
   }
   .chat-title h2 {
     color: rgba(255, 255, 255, 0.5);
@@ -137,7 +161,7 @@ body{
 }
 
 .chatarea-inner {
-    flex: 1 1 auto;
+  flex: 1 1 auto;
   color: rgba(255, 255, 255, 0.78);
   overflow: hidden;
   position: relative;

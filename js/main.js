@@ -23,7 +23,7 @@ function showusermsg(usermsg){
 
 function showchatbotmsg(chatbotmsg){
     let output = '';
-    output += `<div class="chatarea-inner chatbot">${chatbotmsg}</div>`;
+    output += `<div class="chatpac"><figure class="avatar"><img src="./images/gif.gif" /></figure><div class="chatarea-inner chatbot">${chatbotmsg}</div></div>`;
     chatareaouter.innerHTML += output;
     return chatareaouter;
 }
